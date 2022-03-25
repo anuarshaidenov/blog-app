@@ -2,7 +2,12 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
-
+gem 'ffi', '~> 1.15', '>= 1.15.5'
+gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
+gem 'rspec', '~> 3.11'
+group :development, :test do
+  gem 'rspec-rails'
+end
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
 
