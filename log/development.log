@@ -1,0 +1,21 @@
+Started GET "/" for ::1 at 2022-03-25 15:19:33 +0300
+Started GET "/" for ::1 at 2022-03-25 15:19:33 +0300
+Started GET "/" for ::1 at 2022-03-25 15:19:34 +0300
+Processing by Rails::WelcomeController#index as HTML
+Processing by Rails::WelcomeController#index as HTML
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 66.6ms | Allocations: 789)
+Completed 200 OK in 481ms (Views: 305.2ms | ActiveRecord: 0.0ms | Allocations: 5896)
+
+
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 42.4ms | Allocations: 786)
+Completed 200 OK in 501ms (Views: 306.5ms | ActiveRecord: 0.0ms | Allocations: 6033)
+
+
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 47.1ms | Allocations: 1014)
+Completed 200 OK in 504ms (Views: 309.9ms | ActiveRecord: 0.0ms | Allocations: 6174)
+
+
