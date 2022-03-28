@@ -1,28 +1,56 @@
 # My Blog
 
-> My Blog Project.
+>
+
+## Project screenshots
+
+N/A
+
+Additional description about the project and its features.
 
 ## Built With
 
 - Ruby on Rails
 
-## Live Demo
+## How to Setup
 
-N/A
+> You can simply clone or download [this repository](https://github.com/Ewoskyx/my_blog), and use your favorite browser or code editor to run this program.
 
-## Getting Started
+- To open the project after download, simply double click the index.html file
 
-To get a local copy up and running follow these simple example steps.
+- To open this project using vs code ( for this example) or your favorite code editor, you can follow the guide below:
+  > in your cmd or command line navigate to where this project is located, then;
 
-### Setup
+```cmd
+cd
+```
 
-- Simply clone the project (for more information please check the link https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
-- Run the cmd promt
-- Type "build i" for the Gemfile.lock
+> thereafter run
 
-### Install
+```cmd
+code .
+```
 
-Not required
+## How to Run the App through terminal
+
+- To run the application through trminal, make sure ruby and IRB is installed in your computer then follow the guide below:
+  > in your cmd or command line navigate to where this project is located, then;
+
+```cmd
+cd
+```
+
+## Install Gems
+
+```cmd
+bundle install
+```
+
+> thereafter run
+
+```cmd
+rails s
+```
 
 ## Author
 
@@ -32,11 +60,19 @@ Not required
 - Twitter: [https://twitter.com/Ewoskyx]
 - LinkedIn: [https://www.linkedin.com/in/ewoskyx]
 
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/Ewoskyx/my-blog/issues).
+
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
+
+- Microverse Team for facilitating project requirements and resources
 
 ## 📝 License
 
