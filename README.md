@@ -1,24 +1,44 @@
-# README
+# Blog App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> The Blog app will let users view post blogs.
 
-Things you may want to cover:
+## Built With
 
-* Ruby version
+- Ruby on Rails
 
-* System dependencies
+## Getting Started
 
-* Configuration
+To get a local copy up and running follow these simple example steps.
 
-* Database creation
+`git clone https://github.com/anuarshaidenov/blog-app.git`
+`cd blog-app`
+To run the dev server use the following command:
+`rails s`
 
-* Database initialization
+## Prerequisites
 
-* How to run the test suite
+- Ruby
+- Ruby on Rails
+- PostgreSQL
 
-* Services (job queues, cache servers, search engines, etc.)
+## Install
 
-* Deployment instructions
+- Ruby
 
-* ...
+## Authors
+
+👤 **Anuar Shaidenov**
+
+- GitHub: [@anuarshaidenov](https://github.com/anuarshaidenov)
+- Twitter: [@anuarnyi](https://twitter.com/anuarnyi)
+- LinkedIn: [Anuar Shaidenov](https://www.linkedin.com/in/anuar-shaidenov-365a951b8/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
