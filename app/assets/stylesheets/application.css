@@ -1,15 +1,81 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #ececec;
+    border-radius: 10px
+}
+
+.card {
+    width: 400px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ececec;
+}
+
+.user_content {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    width: 2.5rem;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.user_name {
+    text-decoration: none;
+}
+
+.stats {
+    background: #b1c5d8 !important;
+    color: #000 !important
+}
+
+.articles {
+    font-size: 0.9rem;
+    color: #424446;
+}
+
+.number1 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color:darkorchid;
+}
+
+.user_avatar {
+    width: 150px;
+    height: 150px;
+    margin-right: 12px;
+}
+
+.bio {
+ width: 25rem;
+ height: auto;
+ padding: 12px;
+ background-color: #b6abab;
+ border-radius: 10px;
+}
+
+.btn-container {
+    width: 400px;
+}
+
+.comments {
+    width: 25rem;
+    height: auto;
+    padding: 12px;
+    background-color: #fdc4c4;
+    border-radius: 10px;
+}
+
+.test {
+    width: 25rem;
+    padding: 12px;
+    background-color: #afc772;
+    border-radius: 10px;
+    /* white-space: nowrap;  */
+    overflow-x: hidden;
+    text-overflow: ellipsis; 
+}

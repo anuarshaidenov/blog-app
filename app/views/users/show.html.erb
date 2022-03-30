@@ -1,1 +1,10 @@
-<h1>Show Users Page</h1>
+<div class="container mt-5 d-flex flex-column justify-content-start">
+    <%= render 'users/user_card'%>
+    <%= render 'users/bio'%>
+    <%= render 'users/posts'%>
+    <div class="btn-container d-flex justify-content-center">
+     
+            <%= link_to "See all posts", user_posts_path(@users), class:"btn-dark link_to p-2 rounded text-decoration-none" %>
+        
+    </div>
+</div>
