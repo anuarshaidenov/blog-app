@@ -1,81 +1,83 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
+
 body {
-    background-color: #ececec;
-    border-radius: 10px
+  background-color: #ececec;
+  border-radius: 10px;
 }
 
 .card {
-    width: 400px;
-    border: none;
-    border-radius: 10px;
-    background-color: #ececec;
+  width: 400px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ececec;
 }
 
 .user_content {
-    display: flex;
-    flex-direction: column;
-    padding: 12px;
-    width: 2.5rem;
-    border-radius: 10px;
-    background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  width: 2.5rem;
+  border-radius: 10px;
+  background-color: #fff;
 }
 
 .user_name {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .stats {
-    background: #b1c5d8 !important;
-    color: #000 !important
+  background: #b1c5d8 !important;
+  color: #000 !important;
 }
 
 .articles {
-    font-size: 0.9rem;
-    color: #424446;
+  font-size: 0.9rem;
+  color: #424446;
 }
 
 .number1 {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color:darkorchid;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: darkorchid;
 }
 
 .user_avatar {
-    width: 150px;
-    height: 150px;
-    margin-right: 12px;
+  width: 150px;
+  height: 150px;
+  margin-right: 12px;
 }
 
 .bio {
- width: 25rem;
- height: auto;
- padding: 12px;
- background-color: #b6abab;
- border-radius: 10px;
+  width: 25rem;
+  height: auto;
+  padding: 12px;
+  background-color: #b6abab;
+  border-radius: 10px;
 }
 
 .btn-container {
-    width: 400px;
+  width: 400px;
 }
 
 .comments {
-    width: 25rem;
-    height: auto;
-    padding: 12px;
-    background-color: #fdc4c4;
-    border-radius: 10px;
+  width: 25rem;
+  height: auto;
+  padding: 12px;
+  background-color: #fdc4c4;
+  border-radius: 10px;
 }
 
 .test {
-    width: 25rem;
-    padding: 12px;
-    background-color: #afc772;
-    border-radius: 10px;
-    /* white-space: nowrap;  */
-    overflow-x: hidden;
-    text-overflow: ellipsis; 
+  width: 25rem;
+  padding: 12px;
+  background-color: #afc772;
+  border-radius: 10px;
+
+  /* white-space: nowrap;  */
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 }
