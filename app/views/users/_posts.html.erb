@@ -1,4 +1,4 @@
-<% @users.latest_posts.each do |post| %>
+<% @user.latest_posts.each do |post| %>
 <div class="test my-3 d-flex flex-column">
     <h5># Post : <%= post.title%></h5>
     <p><%= truncate post.text, length: 160%></p>
