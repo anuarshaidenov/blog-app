@@ -1,3 +1,7 @@
 <div class="container">
     <%= render 'posts/selected_post'%>
+    <%= form_with url: "/posts/#{@post.id}/likes", scope: :like do |form| %>
+    <%= form.submit "Like ", class: "btn-success"%>
+  <% end %>
+    <%= render "comments/add_comments" %>
 </div>

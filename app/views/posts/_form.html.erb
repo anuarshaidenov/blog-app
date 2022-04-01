@@ -1,0 +1,15 @@
+<!-- Creates a Post on behalf of the current_user. -->
+<%= form_for (@post) do |f| %>
+<div>
+    <%=f.label :title%>
+    <%=f.text_field :title%>
+</div>
+<div>
+    <%=f.label :text%>
+    <%=f.text_area :text%>
+</div>
+<div>
+    <%=f.submit "Add new post"%>
+</div>
+<%end%>
+    
