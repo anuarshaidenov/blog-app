@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @new_comment = current_user.comments.new(
       text: comment_params,
-      author_id:current_user.id,
+      author_id: current_user.id,
       post_id: @post.id
     )
     @new_comment.post_id = @post.id
