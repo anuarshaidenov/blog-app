@@ -20,9 +20,11 @@ class PostsController < ApplicationController
     @new_post.comments_counter = 0
     @new_post.update_posts_counter
     if @new_post.save
+      flash[:notice] = 'Post created!'
       redirect_to post_path(@new_post)
     else
-      render text: 'Could not save post'
+      flash.now[:error] = 'Could not save post'
+      render action: 'new'
     end
   end
 

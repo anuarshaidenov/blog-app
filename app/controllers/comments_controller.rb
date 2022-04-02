@@ -14,8 +14,9 @@ class CommentsController < ApplicationController
     @new_comment.update_comments_counter
     if @new_comment.save
       redirect_to "/users/#{@post.author_id}/posts/#{@post.id}"
+      flash[:notice] = 'Comment created!'
     else
-      render text: 'Could not save post'
+      redirect_to "/users/#{@post.author_id}/posts/#{@post.id}", flash: { alert: 'Your comment can not saved' }
     end
   end
 
