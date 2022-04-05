@@ -1,2 +1,20 @@
-<h1>Here you will see the information about a single user.</h1>
-<h2><%= @user.name %></h2>
+<section>
+  <div class="flex items-center justify-between mb-16">
+    <img class="rounded-full max-w-[170px]" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="User" />
+    <h1 class="font-headings font-semibold text-6xl"><%= @user.name %></h1>
+    <span class="text-2xl">Number of posts: <%= @user.posts.length %></span>
+  </div>
+  <p class="text-lg mb-20">
+    <%= @user.bio %>
+  </p>
+  <h3 class="font-semibold font-headings text-4xl mb-6">Posts</h3>
+  <ul class="flex flex-col gap-12">
+    <% @user.recent_posts.each do |post| %>
+      <li class="flex flex-col gap-3">
+        <span class="text-base"><%= post.created_at %></span>
+        <h4 class="text-2xl font-semibold font-headings"><%= post.title %></h4>
+        <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus in et massa nunc duis quis risus id tempus. Ipsum sed morbi gravida tortor ullamcorper vivamus...</p>
+      </li> 
+    <% end %>
+  </ul>
+</section>
