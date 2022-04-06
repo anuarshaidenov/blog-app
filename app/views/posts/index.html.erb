@@ -1,17 +1,17 @@
 <section class="">
-  <div class="flex items-center justify-between mb-36">
-    <img class="rounded-full max-w-[170px]" src="<%= @user.photo %>" alt="User" />
-    <h1 class="font-headings font-semibold text-6xl"><%= @user.name %></h1>
-    <span class="text-2xl">Number of posts: <%= @user.posts_counter %></span>
-  </div>
+  <%= render partial: "users/user-header", locals: {user: @user} %>
   <ul class="flex flex-col gap-20">
     <% @posts.each do |post| %>
       <%= link_to user_post_path(user_id: @user.id, id: post.id), class: 'hover:opacity-40' do %>
         <%= render partial: "post-preview", locals: {post: post} %>
         <h4 class="text-2xl font-semibold font-headings mb-4 mt-4">Comments:</h4>
         <ul>
-          <% post.recent_comments.each do |comment| %>
-            <li><%= comment.author.name %>: <%= comment.text %></li>
+          <% if post.comments.length == 0 %>
+            <span class="">No comments</span>
+          <% else %>
+            <% post.recent_comments.each do |comment| %>
+              <li><%= comment.author.name %>: <%= comment.text %></li>
+            <% end %>
           <% end %>
         </ul>
       <% end %>

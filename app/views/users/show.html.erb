@@ -1,9 +1,5 @@
 <section>
-  <div class="flex items-center justify-between mb-16">
-    <img class="rounded-full max-w-[170px]" src="<%= @user.photo %>" alt="User" />
-    <h1 class="font-headings font-semibold text-6xl"><%= @user.name %></h1>
-    <span class="text-2xl">Number of posts: <%= @user.posts_counter %></span>
-  </div>
+  <%= render partial: "user-header", locals: {user: @user} %>
   <p class="text-lg mb-20">
     <%= @user.bio %>
   </p>
