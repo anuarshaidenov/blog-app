@@ -1,7 +1,9 @@
 <section class="">
   <div class="flex items-center justify-between mb-36">
     <h1 class="font-headings font-semibold text-6xl"><%= @post.title %></h1>
-    <span class="text-2xl"><%= @post.author.name %></span>
+    <%= link_to user_path(id: @post.author.id) do %>
+      <span class="text-2xl hover:opacity-40"><%= @post.author.name %></span>
+    <% end %>
   </div>
   <p class="text-lg mb-14"><%= @post.text %></p>
   <h4 class="text-2xl font-semibold font-headings mb-4">Comments:</h4>

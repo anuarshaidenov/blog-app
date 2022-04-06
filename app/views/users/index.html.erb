@@ -1,11 +1,13 @@
 <section class="">
   <ul class="flex flex-col gap-20">
     <% @users.each do |user| %>
-      <li class="flex items-center gap-10">
-        <img class="rounded-full max-w-[100px]" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="User" />
-        <h3 class="font-headings font-semibold text-5xl grow"><%= user.name %></h3>
-        <span class="text-2xl">Number of posts: <%= user.posts.length %></span>
-      </li>
+      <%= link_to user_path(id: user.id) do %>
+        <li class="flex items-center gap-10 hover:opacity-40">
+          <img class="rounded-full max-w-[100px]" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="User" />
+          <h3 class="font-headings font-semibold text-5xl grow"><%= user.name %></h3>
+          <span class="text-2xl">Number of posts: <%= user.posts.length %></span>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </section>
