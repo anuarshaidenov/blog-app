@@ -1,1 +1,15 @@
-<h1>Here you will see the information about a single user.</h1>
+<section>
+  <%= render partial: "user-header", locals: {user: @user} %>
+  <p class="text-lg mb-20">
+    <%= @user.bio %>
+  </p>
+  <h3 class="font-semibold font-headings text-4xl mb-6">Recent Posts</h3>
+  <ul class="flex flex-col gap-12 mb-20">
+    <% @user.recent_posts.each do |post| %>
+      <%= link_to user_post_path(user_id: @user.id, id: post.id), class: 'hover:opacity-40' do %>
+        <%= render partial: "posts/post-preview", locals: {post: post} %>
+      <% end %>
+    <% end %>
+  </ul>
+  <%= link_to "See all", user_posts_path(user_id: @user.id), class: "text-lg underline hover:opacity-40" %>
+</section>

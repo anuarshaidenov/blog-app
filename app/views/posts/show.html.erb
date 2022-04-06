@@ -1,1 +1,11 @@
-<h1>Here you will find a single post</h1>
+<section class="">
+  <div class="flex items-center justify-between mb-36">
+    <h1 class="font-headings font-semibold text-6xl"><%= @post.title %></h1>
+    <%= link_to user_path(id: @post.author.id) do %>
+      <span class="text-2xl hover:opacity-40"><%= @post.author.name %></span>
+    <% end %>
+  </div>
+  <p class="text-lg mb-14"><%= @post.text %></p>
+  <%= render partial: "comments", locals: {comments: @post.comments} %>
+
+</section>

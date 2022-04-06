@@ -1,1 +1,13 @@
-<h1>Here you will find the list of users</h1>
+<section class="">
+  <ul class="flex flex-col gap-20">
+    <% @users.each do |user| %>
+      <%= link_to user_path(id: user.id) do %>
+        <li class="flex items-center gap-10 hover:opacity-40">
+          <img class="rounded-full max-w-[100px]" src="<%= user.photo %>" alt="User" />
+          <h3 class="font-headings font-semibold text-5xl grow"><%= user.name %></h3>
+          <span class="text-2xl">Number of posts: <%= user.posts_counter %></span>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</section>
