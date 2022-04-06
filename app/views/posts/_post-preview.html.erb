@@ -2,6 +2,8 @@
   <span class="text-base"><%= post.created_at %></span>
   <h4 class="text-2xl font-semibold font-headings"><%= post.title %></h4>
   <p class="text-lg"><%= truncate post.text, length: 200 %></p>
-  <span class="self-end">Comments: <%= post.comments_counter %></span>
-  <span class="self-end">Likes: <%= post.likes_counter %></span>
+  <div class="self-end">
+    <span>Comments: <%= post.comments_counter %></span>
+    <span>Likes: <%= post.likes_counter %></span>
+  </div>
 </li>

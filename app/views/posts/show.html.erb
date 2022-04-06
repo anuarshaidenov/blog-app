@@ -6,10 +6,6 @@
     <% end %>
   </div>
   <p class="text-lg mb-14"><%= @post.text %></p>
-  <h4 class="text-2xl font-semibold font-headings mb-4">Comments:</h4>
-  <ul>
-    <% @post.comments.each do |comment| %>
-      <li><%= comment.author.name %>: <%= comment.text %></li>
-    <% end %>
-  </ul>
+  <%= render partial: "comments", locals: {comments: @post.comments} %>
+
 </section>
