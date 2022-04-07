@@ -6,8 +6,10 @@
     <% end %>
   </div>
   <p class="text-lg mb-14"><%= @post.text %></p>
+  <div class="mb-4">Likes: <%= @post.likes_counter || 0 %></div>
+  <%= render partial: "like", locals: {like: @like} %>
   <div class="mb-8">
-    <%= render partial: "comments", locals: {comments: @post.comments, class_name: 'mb-10'} %>
+    <%= render partial: "comments", locals: {comments: @post.comments} %>
   </div>
   <%= render partial: 'create-comment', locals: {comment: @comment} %>
 
