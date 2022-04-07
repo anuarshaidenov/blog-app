@@ -1,0 +1,8 @@
+<section class="">
+  <h1 class="text-4xl font-semibold font-headings mb-10">New post</h1>
+  <%= form_with model: @post, url: user_posts_path, html: { class: 'flex flex-col items-start gap-8', autocomplete: 'off' } do |form| %>
+    <%= form.text_field :title, placeholder: 'Title', required: true, class: 'text-white block w-full rounded-lg max-w-sm border-2 border-white outline-none focus:border-white focus:opacity-60 bg-transparent' %>
+    <%= form.text_area :text, placeholder: 'Text', required: true, rows: 10, class: 'text-white block w-full rounded-lg border-2 border-white outline-none focus:border-white focus:opacity-60 bg-transparent' %>
+    <%= form.submit "Publish", class: 'cursor-pointer hover:underline' %>
+  <% end %>
+</section>
