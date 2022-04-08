@@ -15,6 +15,9 @@
   </head>
 
   <body class="bg-black text-white font-main">
+    <% flash.each do |name, msg| -%>
+      <p class="text-green container mx-auto mt-10"><%= msg %></p>
+    <% end -%>
     <main class="container mx-auto my-28 px-5">
       <%= yield %>
     </main>

@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post.author = current_user
 
     if @post.save
-      redirect_to user_post_path(user_id: @post.author.id, id: @post.id)
+      redirect_to user_post_path(user_id: @post.author.id, id: @post.id), notice: 'Post was successfully created!'
     else
       render :new, alert: 'An error has occurred while creating the post'
     end

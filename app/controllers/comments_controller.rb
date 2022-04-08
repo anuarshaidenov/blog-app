@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
 
     if @comment.save
-      redirect_to user_post_path(user_id: @comment.author.id, id: @comment.post.id)
+      redirect_to user_post_path(user_id: @comment.author.id, id: @comment.post.id), notice: 'Comment was successfully created!'
     else
       render user_post_path(user_id: @comment.author.id, id: @comment.post.id),
              alert: 'An error has occurred while creating the comment.'
