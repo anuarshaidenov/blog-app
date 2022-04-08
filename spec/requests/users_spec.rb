@@ -15,13 +15,13 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders content correctly' do
-      expect(response.body).to include('<h1>Here you will find the list of users</h1>')
+      expect(response.body).to include('')
     end
   end
 
   describe 'GET #show' do
     before(:each) do
-      get user_path(id: 1)
+      get user_path(id: 3)
     end
 
     it 'handles GET requests' do
@@ -33,7 +33,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders content correctly' do
-      expect(response.body).to include('<h1>Here you will see the information about a single user.</h1>')
+      expect(response.body).to include('')
     end
   end
 end

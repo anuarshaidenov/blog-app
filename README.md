@@ -6,20 +6,30 @@
 
 - Ruby on Rails
 
-## Getting Started
-
-To get a local copy up and running follow these simple example steps.
-
-`git clone https://github.com/anuarshaidenov/blog-app.git`
-`cd blog-app`
-To run the dev server use the following command:
-`rails s`
-
 ## Prerequisites
 
 - Ruby
 - Ruby on Rails
 - PostgreSQL
+- Terminal
+
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+1. clone the repository to you machine using your terminal:
+   `git clone https://github.com/anuarshaidenov/blog-app.git`
+   `cd blog-app`
+2. Install the gems:
+   `bundle install`
+3. Setup the development and the test databases:
+   `rails db:setup`
+4. Seed the test database:
+   `rails db:seed RAILS_ENV=test`
+5. To run the server use:
+   `rails s`
+   To run the tests use:
+   `rspec`
 
 ## Install
 
