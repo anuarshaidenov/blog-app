@@ -26,8 +26,8 @@ To get a local copy up and running follow these simple example steps.
    `rails db:setup`
 4. Seed the test database:
    `rails db:seed RAILS_ENV=test`
-5. To run the server use:
-   `rails s`
+5. To run the dev server and build tailwindCSS files use:
+   `./bin/dev`
    To run the tests use:
    `rspec`
 
