@@ -15,6 +15,8 @@
   </head>
 
   <body class="bg-black text-white font-main">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <% flash.each do |name, msg| -%>
       <p class="text-green container mx-auto mt-10"><%= msg %></p>
     <% end -%>
