@@ -6,6 +6,9 @@
     <% end %>
   </div>
   <p class="text-lg mb-14"><%= @post.text %></p>
+  <% if can? :destroy, @post %>
+    <%= button_to "Delete post 🗑", user_post_path(user_id: @post.author.id, post_id: @post.id), method: :delete, class: 'mb-10 hover:opacity-60'  %>
+  <% end %>
   <div class="mb-4">Likes: <%= @post.likes_counter || 0 %></div>
   <%= render partial: "like", locals: {like: @like} %>
   <div class="mb-8">
