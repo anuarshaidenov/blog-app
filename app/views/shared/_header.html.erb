@@ -1,10 +1,14 @@
 <header class="container mx-auto py-10">
-  <nav class="flex justify-start items-center gap-10">
-    <%= link_to "Users", users_path %>
+  <nav class="flex justify-between items-center">
+    <ul class="flex gap-10">
+      <%= link_to "Users", users_path %>
+      <% if user_signed_in? %>
+        <%= link_to "My profile", user_path(current_user.id), class: 'justify-self-end'%>
+        <%= link_to "My posts", user_posts_path(current_user.id), class: 'justify-self-end'%>
+        <%= link_to "Create a post", new_user_post_path(current_user.id), class: 'justify-self-end'%>
+      <% end %>
+    </ul>
     <% if user_signed_in? %>
-      <%= link_to "My profile", user_path(current_user.id), class: 'justify-self-end'%>
-      <%= link_to "All posts", user_posts_path(current_user.id), class: 'justify-self-end'%>
-      <%= link_to "Create a post", new_user_post_path(current_user.id), class: 'justify-self-end'%>
       <%= link_to "Sign out", destroy_user_session_path, class: 'justify-self-end', :method => 'delete'%>
     <% else %>
       <%= link_to "Sign in", new_user_session_path, class: 'justify-self-end' %>
