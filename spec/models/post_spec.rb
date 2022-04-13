@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   describe 'Post model' do
-    user = User.create name: 'Anuar', photo: 'photo_link', bio: 'wag1'
+    user = User.create name: 'Anuar', photo: 'photo_link', bio: 'wag1', email: 'anuar@example.com', password: 'password'
     post = Post.new author: user, title: 'hello', text: 'first post'
 
     before { post.save }
