@@ -1,5 +1,5 @@
 RSpec.describe 'Testing users views', type: :feature do
-  context 'user#index views' do
+  describe 'user#index views' do
     before(:each) do
       User.create!(name: 'Tom', photo: 'photo.jpg', bio: 'Teacher from Mexico.', email: 'to@example.com',
                    password: 'password', confirmed_at: Time.now)
@@ -27,7 +27,7 @@ RSpec.describe 'Testing users views', type: :feature do
     end
   end
 
-  context 'users#show views' do
+  describe 'users#show views' do
     before(:each) do
       first_user = User.create!(name: 'Tom', photo: 'photo.jpg', bio: 'Teacher from Mexico.', email: 'to@example.com',
                                 password: 'password', confirmed_at: Time.now)
