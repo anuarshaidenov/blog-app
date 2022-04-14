@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   describe 'Post model' do
     before(:each) do
-      first_user = User.create!(name: 'Tom', photo: 'photo.jpg', bio: 'Teacher from Mexico.', email: 'to@example.com', password: 'password')
-      first_post = Post.create!(author_id: first_user.id, title: 'Hello', text: 'This is my first post')
+      first_user = User.create!(name: 'Tom', photo: 'photo.jpg', bio: 'Teacher from Mexico.', email: 'to@example.com',
+                                password: 'password')
+      Post.create!(author_id: first_user.id, title: 'Hello', text: 'This is my first post')
     end
 
     it 'title must not be blank' do

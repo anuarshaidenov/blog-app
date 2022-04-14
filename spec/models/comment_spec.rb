@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   describe 'Comment model' do
-    
     before(:each) do
-      first_user = User.create!(name: 'Tom', photo: 'photo.jpg', bio: 'Teacher from Mexico.', email: 'tomss@example.com', password: 'password')
+      first_user = User.create!(name: 'Tom', photo: 'photo.jpg', bio: 'Teacher from Mexico.',
+                                email: 'tomss@example.com', password: 'password')
       first_post = Post.create!(author_id: first_user.id, title: 'Hello', text: 'This is my first post')
-      comment = Comment.create!(post_id: first_post.id, author_id: first_user.id, text: 'Hi Tom!')
+      Comment.create!(post_id: first_post.id, author_id: first_user.id, text: 'Hi Tom!')
     end
 
     # before { comment.save! }
