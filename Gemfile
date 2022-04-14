@@ -82,3 +82,6 @@ gem 'devise'
 gem 'tailwindcss-rails', '~> 2.0'
 
 gem 'cancancan'
+
+gem 'bcrypt', '~> 3.1.7'
+gem 'jwt'
