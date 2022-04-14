@@ -14,7 +14,14 @@ RSpec.describe 'Login page', type: :feature do
 
   it "When I click the submit button without filling in the username and the password, I get a detailed error." do
     click_on 'Log in'
-    expect(page).to have_content 'Invalid Email'
+    expect(page).to have_content 'Invalid Email or password'
+  end
+  
+  it "When I click the submit button after filling in the username and the password with incorrect data, I get a detailed error." do
+    fill_in "Email",	with: "ttt@exaple.com"
+    fill_in "Password",	with: "sometext" 
+    click_on 'Log in'
+    expect(page).to have_content 'Invalid Email or password'
   end
 
 end
