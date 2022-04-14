@@ -12,4 +12,9 @@ RSpec.describe 'Login page', type: :feature do
     expect(page).to have_button(type: 'submit')
   end
 
+  it "When I click the submit button without filling in the username and the password, I get a detailed error." do
+    click_on 'Log in'
+    expect(page).to have_content 'Invalid Email'
+  end
+
 end
