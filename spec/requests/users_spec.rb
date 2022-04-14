@@ -3,6 +3,9 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request do
   describe 'GET #index' do
     before(:each) do
+      first_user = User.create!(name: 'Tom', photo: 'photo.jpg', bio: 'Teacher from Mexico.', email: 'to@example.com',
+                                password: 'password')
+      Post.create!(author_id: first_user.id, title: 'Hello', text: 'This is my first post')
       get users_path
     end
 
@@ -15,13 +18,16 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders content correctly' do
-      expect(response.body).to include('')
+      expect(response.body).to include('Tom')
     end
   end
 
   describe 'GET #show' do
     before(:each) do
-      get user_path(id: 3)
+      first_user = User.create!(name: 'Tom', photo: 'photo.jpg', bio: 'Teacher from Mexico.', email: 'to@example.com',
+                                password: 'password')
+      Post.create!(author_id: first_user.id, title: 'Hello', text: 'This is my first post')
+      get user_path(id: first_user.id)
     end
 
     it 'handles GET requests' do
@@ -33,7 +39,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders content correctly' do
-      expect(response.body).to include('')
+      expect(response.body).to include('Tom')
     end
   end
 end

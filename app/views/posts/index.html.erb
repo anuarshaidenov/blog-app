@@ -1,7 +1,7 @@
 <section class="">
   <%= render partial: "users/user-header", locals: {user: @user} %>
   <%= link_to "Create a new post", new_user_post_path, class: "text-2xl underline my-20 block hover:opacity-40" %>
-  <ul class="flex flex-col gap-20">
+  <ul class="flex flex-col gap-20 mb-20">
     <% @posts.each do |post| %>
       <%= link_to user_post_path(user_id: @user.id, id: post.id), class: 'hover:opacity-40' do %>
         <%= render partial: "post-preview", locals: {post: post} %>
@@ -9,4 +9,7 @@
       <% end %>
     <% end %>
   </ul>
+  <div>
+    <button class="underline">next page</button>
+  </div>
 </section>
