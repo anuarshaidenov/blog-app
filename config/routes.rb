@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root "users#index"
   # Define endpoints for
   post '/api/login', to: 'authentication#login'
-  get '/api/posts', to: 'posts#get_posts'
-  get '/api/comments', to: 'comments#get_comments'
+  get '/api/posts', to: 'posts#posts'
+  get '/api/comments', to: 'comments#comments'
   post '/api/comments', to: 'comments#add_comment'
 
   resources :users, only: [:index, :show] do
