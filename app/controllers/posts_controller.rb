@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_request
+
   load_and_authorize_resource
 
   def index
@@ -31,6 +33,14 @@ class PostsController < ApplicationController
     @author.decrement!(:posts_counter)
     @post.destroy!
     redirect_to user_posts_path(id: @author.id), notice: 'Post was deleted successfully!'
+  end
+
+  def posts
+    user = User.find(params[:user_id])
+
+    respond_to do |format|
+      format.json { render json: user.posts }
+    end
   end
 
   private
