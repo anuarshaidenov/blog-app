@@ -1,0 +1,9 @@
+<li class="flex flex-col gap-3">
+  <span class="text-base"><%= post.created_at %></span>
+  <h4 class="text-2xl font-semibold font-headings"><%= post.title %></h4>
+  <p class="text-lg"><%= truncate post.text, length: 200 %></p>
+  <div class="self-end">
+    <span>Comments: <%= post.comments_counter || 0 %></span>
+    <span>Likes: <%= post.likes_counter || 0 %></span>
+  </div>
+</li>

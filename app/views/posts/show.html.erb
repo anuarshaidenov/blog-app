@@ -1,7 +1,19 @@
-<div class="container">
-    <%= render 'posts/selected_post'%>
-    <%= form_with url: "/posts/#{@post.id}/likes", scope: :like do |form| %>
-    <%= form.submit "Like ", class: "btn-success"%>
+<section class="">
+  <div class="flex items-center justify-between mb-36">
+    <h1 class="font-headings font-semibold text-6xl"><%= @post.title %></h1>
+    <%= link_to user_path(id: @post.author.id) do %>
+      by <span class="text-2xl hover:opacity-40"><%= @post.author.name %></span>
+    <% end %>
+  </div>
+  <p class="text-lg mb-14"><%= @post.text %></p>
+  <% if can? :destroy, @post %>
+    <%= button_to "Delete post 🗑", user_post_path(user_id: @post.author.id, post_id: @post.id), method: :delete, class: 'mb-10 hover:opacity-60'  %>
   <% end %>
-    <%= render "comments/add_comments" %>
-</div>
+  <div class="mb-4">Likes: <%= @post.likes_counter || 0 %></div>
+  <%= render partial: "like", locals: {like: @like} %>
+  <div class="mb-8">
+    <%= render partial: "comments", locals: {comments: @post.comments} %>
+  </div>
+  <%= render partial: 'create-comment', locals: {comment: @comment} %>
+
+</section>

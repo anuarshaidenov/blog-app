@@ -1,17 +1,9 @@
 class UsersController < ApplicationController
   def index
-    @user = User.all
+    @users = User.all.includes(:posts)
   end
 
   def show
-    @user = User.find(params[:id])
-  end
-
-  def delete; end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :photo, :bio)
+    @user = User.includes(:posts).find(params[:id])
   end
 end

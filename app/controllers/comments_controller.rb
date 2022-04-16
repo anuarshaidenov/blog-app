@@ -1,28 +1,27 @@
 class CommentsController < ApplicationController
-  def new
-    @comment = Comment.new
+  def create
+    @comment = current_user.comments.new(comment_params)
+
+    if @comment.save
+      redirect_to user_post_path(id: @comment.post.id),
+                  notice: 'Comment was successfully created!'
+    else
+      render user_post_path(id: @comment.post.id),
+             alert: 'An error has occurred while creating the comment.'
+    end
   end
 
-  def create
-    @post = Post.find(params[:post_id])
-    @new_comment = current_user.comments.new(
-      text: comment_params,
-      author_id: current_user.id,
-      post_id: @post.id
-    )
-    @new_comment.post_id = @post.id
-    @new_comment.update_comments_counter
-    if @new_comment.save
-      redirect_to "/users/#{@post.author_id}/posts/#{@post.id}"
-      flash[:notice] = 'Comment created!'
-    else
-      redirect_to "/users/#{@post.author_id}/posts/#{@post.id}", flash: { alert: 'Your comment can not saved' }
-    end
+  def destroy
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
+    @post.decrement!(:comments_counter)
+    @comment.destroy!
+    redirect_to user_post_path(id: @post.id), notice: 'Comment was successfully deleted!'
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:text)[:text]
+    params.permit(:text, :post_id)
   end
 end

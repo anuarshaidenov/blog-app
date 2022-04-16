@@ -1,21 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  # create a new user
-  before(:each) do
-    @user = User.new(name: 'Test User', bio: 'Test Bio', photo: 'Test Photo')
-  end
+  describe 'User model' do
+    user = User.new(name: 'Anuar', photo: 'photo_link', bio: 'wag1', email: 'anuar@test.me', password: 'password')
 
-  # test if user is not valid without a name
-  it 'is not valid without a name' do
-    @user.name = nil
-    expect(@user).to_not be_valid
-  end
-  it 'PostsCounter must be an integer greater than or equal to zero.' do
-    @user.posts_counter = nil
-    expect(@user).to_not be_valid
-  end
-  it 'check if the posts_counter greater than or equal to zero' do
-    expect(subject.posts_counter).to be >= 0
+    before { user.save }
+
+    it 'name must not be blank' do
+      user.name = nil
+      expect(user).to_not be_valid
+      user.name = 'Anuar'
+    end
+
+    it 'post counter must be an integer' do
+      user.posts_counter = 'hi'
+      expect(user).to_not be_valid
+      user.posts_counter = 0
+    end
+
+    it 'should have 0 posts' do
+      expect(user.recent_posts.length).to eq 0
+    end
   end
 end

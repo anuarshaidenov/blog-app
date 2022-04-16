@@ -1,11 +1,15 @@
-<div class="container mt-5 d-flex flex-column justify-content-start mb-5">
-    <%= render 'users/user_card'%>
-    <%= render 'posts/posts'%>
-    <%if @user.posts_counter > 2%>
-  <div class="button-div">
-    <button class="button">
-        Pagination
-    </button>
+<section class="">
+  <%= render partial: "users/user-header", locals: {user: @user} %>
+  <%= link_to "Create a new post", new_user_post_path, class: "text-2xl underline my-20 block hover:opacity-40" %>
+  <ul class="flex flex-col gap-20 mb-20">
+    <% @posts.each do |post| %>
+      <%= link_to user_post_path(user_id: @user.id, id: post.id), class: 'hover:opacity-40' do %>
+        <%= render partial: "post-preview", locals: {post: post} %>
+        <%= render partial: "comments", locals: { comments: post.recent_comments } %>
+      <% end %>
+    <% end %>
+  </ul>
+  <div>
+    <button class="underline">next page</button>
   </div>
-<%end%>
-</div>
+</section>

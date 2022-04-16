@@ -1,22 +1,22 @@
 require 'rails_helper'
 
-# write test for Like model here
 RSpec.describe Comment, type: :model do
-  it 'is invalid without a body' do
-    expect(Comment.new(text: nil)).to be_invalid
-  end
+  describe 'Comment model' do
+    before(:each) do
+      first_user = User.create!(name: 'Tom', photo: 'photo.jpg', bio: 'Teacher from Mexico.',
+                                email: 'tomss@example.com', password: 'password')
+      first_post = Post.create!(author_id: first_user.id, title: 'Hello', text: 'This is my first post')
+      Comment.create!(post_id: first_post.id, author_id: first_user.id, text: 'Hi Tom!')
+    end
 
-  # test user association with new comment
-  it 'belongs to a user' do
-    user = User.create(name: 'ALen', bio: 'bio')
-    comment = Comment.create(text: 'text', author: user)
-    expect(comment.author).to eq(user)
-  end
+    # before { comment.save! }
 
-  # test post association with new comment
-  it 'belongs to a post' do
-    post = Post.create(title: 'title', author: User.create(name: 'ALen', bio: 'bio'))
-    comment = Comment.create(text: 'text', post:)
-    expect(comment.post).to eq(post)
+    it 'comment must be present' do
+      expect(Comment.all.length).to eq 1
+    end
+
+    it 'comment must have a correct text' do
+      expect(Comment.first.text).to eq 'Hi Tom!'
+    end
   end
 end

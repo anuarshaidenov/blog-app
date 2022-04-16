@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts.includes(:comments)
+    @posts = @user.posts.includes(:comments, :likes)
   end
 
   def show
-    @post = Post.find(params[:id])
-    @user = @post.author
-    @comment = @post.comments
+    @post = Post.includes(:comments, :likes).find(params[:id])
   end
 
   def new
@@ -15,17 +15,22 @@ class PostsController < ApplicationController
   end
 
   def create
-    @new_post = current_user.posts.new(post_params)
-    @new_post.likes_counter = 0
-    @new_post.comments_counter = 0
-    @new_post.update_posts_counter
-    if @new_post.save
-      flash[:notice] = 'Post created!'
-      redirect_to post_path(@new_post)
+    @post = Post.new(post_params)
+    @post.author = current_user
+
+    if @post.save
+      redirect_to user_post_path(user_id: @post.author.id, id: @post.id), notice: 'Post was successfully created!'
     else
-      flash.now[:error] = 'Could not save post'
-      render action: 'new'
+      render :new, alert: 'An error has occurred while creating the post'
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @author = @post.author
+    @author.decrement!(:posts_counter)
+    @post.destroy!
+    redirect_to user_posts_path(id: @author.id), notice: 'Post was deleted successfully!'
   end
 
   private

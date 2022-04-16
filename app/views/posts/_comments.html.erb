@@ -1,0 +1,13 @@
+<h4 class="text-2xl font-semibold font-headings my-4">Comments (<%= comments.length %>):</h4>
+<ul>
+  <% if comments.length == 0 %>
+    <span class="">No comments</span>
+  <% else %>
+    <% comments.each do |comment| %>
+      <li><%= comment.author.name %>: <%= comment.text %></li>
+      <% if can? :destroy, comment %>
+    <%= button_to "🗑", user_post_comment_path(user_id: comment.author.id, post_id: comment.post.id, id: comment.id), method: :delete, class: 'hover:opacity-60'  %>
+  <% end %>
+    <% end %>
+  <% end %>
+</ul>

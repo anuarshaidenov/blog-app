@@ -2,29 +2,36 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   describe 'Post model' do
-    user = User.create(name: 'Evren', bio: 'blah')
-    subject do
-      Post.new(title: 'New post', text: 'New Text', author_id: user)
-    end
-    before { subject.save }
-
-    it 'check if the title is not blank' do
-      subject.title = nil
-      expect(subject).to_not be_valid
+    before(:each) do
+      first_user = User.create!(name: 'Tom', photo: 'photo.jpg', bio: 'Teacher from Mexico.', email: 'to@example.com',
+                                password: 'password')
+      Post.create!(author_id: first_user.id, title: 'Hello', text: 'This is my first post')
     end
 
-    it 'check if the title is not exceeding 250 characters' do
-      subject.title = 'Title' * 100
-      expect(subject).to_not be_valid
+    it 'title must not be blank' do
+      post = Post.first
+      post.title = nil
+      expect(post).to_not be_valid
     end
 
-    it 'validates that likes counter is greater than or equal to 0' do
-      subject.likes_counter = -1
-      expect(subject).to_not be_valid
+    it 'title must not exceed 250 characters.' do
+      # rubocop:disable Layout/LineLength
+      post = Post.first
+      post.title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum, rhoncus sit morbi facilisis ipsum pellentesque pellentesque. Nunc scelerisque ullamcorper nibh ut nunc. Ut magnis viverra vitae ut tellus lobortis. Odio eget elementum enim aliquam morbi facilisis morbi. Eget phasellus sed morbi'
+      # rubocop:enable Layout/LineLength
+      expect(post).to_not be_valid
     end
 
-    it 'loads only the recent 5 comments' do
-      expect(subject.latest_comments).to eq(subject.comments.last(5))
+    it 'comments_counter must be an integer greater than or equal to 0' do
+      post = Post.first
+      post.comments_counter = -1
+      expect(post).to_not be_valid
+    end
+
+    it 'likes_counter must be an integer greater than or equal to 0' do
+      post = Post.first
+      post.likes_counter = -1
+      expect(post).to_not be_valid
     end
   end
 end
