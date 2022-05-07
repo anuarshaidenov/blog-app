@@ -2,6 +2,7 @@ class LikesController < ApplicationController
   skip_before_action :authenticate_request
 
   def create
+    #just test something :)
     @post = Post.find(params[:post_id])
     @like = Like.new(author: current_user, post: @post)
 
